@@ -36,23 +36,23 @@ export class MoneyComponentComponent implements OnInit {
     this.changeMoneyValue();
   }
 
-  calculate(valeu: number, referencia: string){
-    if(valeu === 0 || isNaN(valeu)) {
+  calculate(value: number, referencia: string){
+    if(!value || value === 0 || isNaN(value)) {
       this.reais ="";
       this.euros ="";
       this.dolares="";
     } 
     else if(referencia === "BRL"){
-        this.dolares = (valeu/this.money.USD.high).toFixed(2);
-        this.euros = (valeu/this.money.EUR.high).toFixed(2);
+        this.dolares = (value/this.money.USD.high).toFixed(2);
+        this.euros = (value/this.money.EUR.high).toFixed(2);
       }
       else if(referencia === "USD"){
-        this.reais = (valeu* this.money.USD.high).toFixed(2);
-        this.euros = (valeu*this.money.USD.high /this.money.EUR.high).toFixed(2);
+        this.reais = (value* this.money.USD.high).toFixed(2);
+        this.euros = (value*this.money.USD.high /this.money.EUR.high).toFixed(2);
       }
       else if(referencia === "EUR"){
-        this.dolares = (valeu* this.money.EUR.high/this.money.USD.high).toFixed(2);
-        this.reais = (valeu*this.money.EUR.high).toFixed(2);
+        this.dolares = (value* this.money.EUR.high/this.money.USD.high).toFixed(2);
+        this.reais = (value*this.money.EUR.high).toFixed(2);
       }
       return
   }
