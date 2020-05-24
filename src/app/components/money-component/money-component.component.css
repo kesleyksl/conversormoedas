@@ -1,0 +1,57 @@
+.content{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.money{
+    color: gold;
+    margin-left: -45px;
+}
+
+.icone{
+    font-size: 7em;
+    margin-top: 5vh;
+}
+
+mat-icon{
+    display: block;
+}
+form{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-top: 15vh;
+}
+.full-width{
+    width: 50vw;
+}
+mat-form-field {
+    margin-top: 20px;
+    border: 1px solid #bbbbbb;
+    border-radius: 10px;
+    color: gold;
+    
+    padding: 5px;
+}
+mat-label{
+    color: gold;
+  
+}
+
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  color: gold;
+  font-size: 1.5em;
+}
+
+
+@media screen and (max-width: 600px) {
+    .full-width{
+        width: 90vw;
+    }
+}
