@@ -37,7 +37,7 @@ export class MoneyComponentComponent implements OnInit {
   }
 
   calculate(value: number, referencia: string){
-    if(!value || value === 0 || isNaN(value)) {
+    if(!value || value === 0) {
       this.reais ="";
       this.euros ="";
       this.dolares="";
