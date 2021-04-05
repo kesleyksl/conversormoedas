@@ -1,9 +1,17 @@
-<mat-toolbar class="header mat-elevation-z4" >
+<mat-toolbar [class]="route == '/Money'?'header mat-elevation-z4 money-bg':'header mat-elevation-z4 percent-bg'" >
+    <button mat-icon-button class="option" *ngIf="route == '/Money'; else conversion" routerLink="/Percentage" >
+        <mat-icon>emoji_symbols</mat-icon>
+    </button>
+    <ng-template #conversion>
+        <button mat-icon-button class="option" routerLink="/Money">
+            <mat-icon>attach_money</mat-icon>
+        </button>
+
+    </ng-template>
     <span>
-        <mat-icon>attach_money</mat-icon>
-        <span>Conversor</span>
-        <mat-icon>attach_money</mat-icon>
+        <span>{{route == '/Money'?'Conversor':'Porcentagem'}}</span>
+
     </span>
-    
+    <span></span>
 </mat-toolbar>
     

@@ -1,0 +1,15 @@
+<div class="content">
+        <mat-form-field appearance="outline"  color="accent">
+            <mat-label>Porcentagem</mat-label>
+            <input matInput autocomplete="off"  type="number" [(ngModel)]="porcentagem">
+            <span matSuffix>%</span>
+        </mat-form-field>
+        <span>de</span>
+        <mat-form-field appearance="outline"  color="accent">
+            <mat-label>Valor</mat-label>
+            <input matInput autocomplete="off" [(ngModel)]="valor">
+        </mat-form-field>
+        <span>
+            Resultado: {{ getResult() }}
+        </span>
+</div>

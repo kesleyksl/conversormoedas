@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MoneyServiceService } from 'src/app/services/money-service.service';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-money-component',
@@ -18,11 +19,16 @@ export class MoneyComponentComponent implements OnInit {
   @ViewChild('real') inputReal: ElementRef;
   @ViewChild('dolar') inputDolar: ElementRef;
   @ViewChild('euro') inputEuro: ElementRef;
+  destroy$ = new Subject<any>();
 
   constructor(private moneyService: MoneyServiceService) { }
 
   ngOnInit(): void {
-    this.moneyService.getMoneyValue().subscribe(
+    this.moneyService.getMoneyValue().pipe
+    (
+      takeUntil(this.destroy$)
+    )
+    .subscribe(
       money=> {
         this.money = money;
         
@@ -69,5 +75,7 @@ export class MoneyComponentComponent implements OnInit {
     )
 
   }
-
+  ngOnDestroy(){
+    this.destroy$.next();
+  }
 }
